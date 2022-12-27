@@ -1,0 +1,199 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="card" id="printBox" >
+    <div class="row">
+        <div class="col" style="text-align:left;"><h5  style="text-align:center;"> Institut superieur des Etudes Technologique de Nabeul</h5></div>
+        <div class="col">  <center> <img src="{% static 'img/logoiset.png' %}" alt="logo" style="width:60px;height:60px;"> </img> </center>  </div> 
+        <div class="col" style="text-align:right"> <h5 style="text-align:center;"> <b> المعهد العالي للدراسات التكنولوجية بنابل </b></h5> </div>
+    </div>
+
+  <hr> 
+
+<h2 style="text-align:center;color:grey;">  Demande De Stage </h2>
+<hr>
+<div>
+    <h3 >Les Coordonnées de L'étudiant:</h3>
+    <h3 style="text-align:right;">Stage: Binome </h3>
+</div>   
+
+
+
+<div class="field is-horizontal">
+  <div class="field-body">
+    <label class="label" >Nom B1:</label>
+    
+    <div class="control is-expanded has-icons-left">
+      <h3> {{ user.nom}}</h3>
+    </div>
+    <label class="label" style="text-align:center;">Nom B2:</label>
+    
+    <div class="control is-expanded has-icons-left has-icons-right">
+      <h3> {{ user.nom2}}</h3>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-body">
+    <label class="label" style="text-align:center;">Prénom B1: </label>
+   
+    <div class="control is-expanded has-icons-left">
+      <h3> {{ user.prenom}}</h3>
+    </div>
+    <label class="label" style="text-align:center;">Prénom B2: </label>
+    
+    <div class="control is-expanded has-icons-left has-icons-right">
+      <h3> {{ user.prenom2}}</h3>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-body">
+    <label class="label" style="text-align:center;">NCin B1: </label>
+    
+    <div class="control is-expanded has-icons-left">
+      <h3> {{ user.ncin}}</h3>
+    </div>
+    <label class="label" style="text-align:center;">Ncin B2: </label>
+   
+    <div class="control is-expanded has-icons-left has-icons-right">
+      <h3> {{ user.ncin2}}</h3>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-body">
+    <label class="label" style="text-align:center;">E-mail B1: </label>
+    
+    <div class="control is-expanded has-icons-left">
+      <h3> {{ user.email}}</h3>
+    </div>
+    <label class="label" style="text-align:center;">E-mail B2: &nbsp;&nbsp;</label>
+    
+    <div class="control is-expanded has-icons-left has-icons-right">
+      <h3> {{ user.email2 }}</h3>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-body">
+    <label class="label" style="text-align:center;">Parcours B1:</label>
+    <div class="control is-expanded has-icons-left">
+      
+        <h3> {{ user.parcours }} </h3> 
+    </div>
+     &nbsp;&nbsp; &nbsp;&nbsp; 
+    <label class="label" style="text-align:center;">Parcours B2: </label>
+    <div class="control is-expanded has-icons-left has-icons-right">
+      <h3> {{ user.parcours2 }} </h3>
+    </div>
+  </div>
+</div>  
+
+ <hr> 
+
+ <label class="label" style="text-align:left;"> <h3> Concerne la Société: </h3> </label>
+
+   <br> 
+
+   <div>
+     <h4 style="text-align:left;"> Nom du Société : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color:grey">  ....................... </i></h4>
+ </div> <br>
+
+   <div >
+     <h4 style="text-align:left;">Adresse du Société: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color:grey">  ....................... </i> </h4>
+ </div> <br>  
+ 
+ 
+
+<div >
+     <h4 style="text-align:left;">Domaine du Société: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color:grey">  ....................... </i></h4>
+ </div>
+
+ 
+<div style="text-align:right;">
+       <h4 style="text-align:right;">Signature <br> <i style="color:grey">  ....................... </i> </h4>
+</div>
+
+
+</div>
+
+
+   
+
+  <button class="button is-primary"  onclick="myFunction()">
+    imprimer
+  </button>
+
+  <script>
+    function myFunction()
+{
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    mywindow.document.write(document.getElementById("printBox").innerHTML);
+    mywindow.document.close();
+    mywindow.focus(); 
+    mywindow.print();
+    mywindow.close();
+    return true;
+}
+       
+    </script>
+    {% endblock content %}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+

@@ -1,0 +1,139 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="row">
+          <div class="col-md-12 offset-md-2">
+           
+            <div class="account-content ">
+
+              <div class="row" >
+
+
+                <div class="col-md-10 login-right ">
+                  
+                        <div class="login-header" >
+                          <h3 style="text-align:center;">Demande de Stage</h3> <br/>
+                          <h6>Les coordonnées de l'étudiant:</h6>
+                          <h3 style="text-align:right;">Stage: Monome</h3>
+                        </div> 
+                          <form method="post" action={%  url 'gestionpfe:updatemonome'  %}>
+                            {% csrf_token %} 
+                            <div class="field">
+                              <label class="label">Nom</label>
+                              <div class="control">
+                                <input class="input" type="text" name="nom" value='{{user.nom}}'>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Prénom</label>
+                              <div class="control">
+                                <input class="input" type="text" name="prenom" value='{{user.prenom}}'>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">NumCin</label>
+                              <div class="control">
+                                <input class="input" type="text" name="cin" value='{{user.ncin}}'>
+                              </div>
+                            </div>
+
+                            
+                            <div class="field is-horizontal">
+                              <div class="field-body">
+                                <div class="field">
+                                  <label class="label" >Parcours:</label> 
+                            <div class="control">
+                              <div class="select is-normal">
+                                <select name="parcours" value='{{user.parcour}}'>
+                                  <option value="dsi" name="parcours" {% if user.parcours == 'dsi' %}selected{% endif %}>DSI</option>
+                                  <option value="sem" name="parcours" {% if user.parcours == 'sem' %}selected{% endif %}>SEM</option>
+                                  <option value="rsi" name="parcours" {% if user.parcours == 'rsi' %}selected{% endif %}>RSI</option>
+                                  <option value="mdw" name="parcours" {% if user.parcours == 'mdw' %}selected{% endif %}>MDW</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="field is-horizontal">
+                              <div class="field-body">
+                            <div class="field">
+                              <label class="label">Email</label>
+                              <div class="control">
+                                <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com" name="email" value='{{user.email}}'>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                          
+                    </form>
+                
+
+<hr> 
+<label class="label" style="text-align:left;">concerne la société:</label>
+<br>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">Nom du Société : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color:grey">  ......................... </i> </label>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">adresse du société: &nbsp;&nbsp;<i style="color:grey">  ....................... </i> </label>
+  </div>
+
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">Domaine du Société: &nbsp;&nbsp;<i style="color:grey">  ....................... </i> </label>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Signature</label>
+    <label class="label"><i style="color:grey">  ....................... </i> </label>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit">
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  </div>
+    </div> 
+      </div>
+        </div>
+          </div> 
+            </div> 
+              </div> 
+                </div>   
+      
+             
+                <br/>
+                
+<br>
+
+{% endblock content %}

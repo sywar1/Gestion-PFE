@@ -1,0 +1,193 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="row">
+          <div class="col-md-12 offset-md-2">
+           
+            <div class="account-content ">
+
+              <div class="row" >
+
+
+                <div class="col-md-10 login-right ">
+                  
+                        <div class="login-header">
+                          <h3 style="text-align:center;">Fiche Recapitulatif</h3> <br/>
+                          <h6>Les coordonnées de l'étudiant:</h6> 
+                          <h3 style="text-align:right;">Stage PFE</h3>
+                        </div>
+                    <form method="post">
+                      {% csrf_token %} 
+                          <div class="field is-horizontal">
+                            <label class="label" style="text-align:center;">Binome1 &nbsp;&nbsp;</label>
+                            <div class="field-body">
+                              <div class="control is-expanded has-icons-left">
+                                <input class="input" type="text" name="nom1">
+                              </div>
+                              <label class="label" style="text-align:center;">Binome2 </label>
+                              <div class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="text" name="nom2">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                            <div class="field-body">
+                              <label class="label" style="text-align:left;">Type de Stage </label>
+                              <div class="control is-expanded has-icons-left">
+                                <div class="select is-normal">
+                                  <select name="type" value='{{user.typ}}'>
+                                    <option value="Monome">Monome</option>
+                                    <option value="Binome">Binome</option>
+                                  </select>
+                                </div>
+                              </div> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <label class="label" style="text-align:left;">Intitulé &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="text" name="intitul">
+                              </div>
+                            </div>
+                          </div> 
+                          <div class="field is-horizontal">
+                            <div class="field-body">
+                              <label class="label" style="text-align:center;">Parcours1 &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left">
+                                <div class="select is-normal">
+                                  <select name="parcours1" value='{{user.parcoursb1}}'>
+                                    <option value="DSI" name="parcours1">DSI</option>
+                                    <option value="SEM" name="parcours1">SEM</option>
+                                    <option value="RSI" name="parcours1">RSI</option>
+                                    <option value="MDW" name="parcours1">MDW</option>
+                                  </select>
+                                </div>
+                              </div> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <label class="label" style="text-align:center;">Parcours2 &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left has-icons-right">
+                                <div class="select is-normal">
+                                  <select name="parcours2" value='{{user.parcoursb2}}'>
+                                    <option value="DSI" name="parcours2"> DSI</option>
+                                    <option value="SEM"name="parcours2"> SEM</option>
+                                    <option value="RSI"name="parcours2"> RSI</option>
+                                    <option value="MDW" name="parcours2"> MDW</option>
+                                  </select>
+                                </div> 
+                              </div>
+                            </div>
+                          </div> 
+                         
+                    
+                  
+<hr> 
+<label class="label" style="text-align:left;">Concerne la Société:</label>
+<br>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">Nom du Société : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+    <div class="control is-expanded has-icons-left">
+        <input class="input" type="text" name="nomso">
+      </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">Domaine du Société:: &nbsp;&nbsp; </label>
+    <div class="control is-expanded has-icons-left">
+        <input class="input" type="text" name="domaine">
+      </div>
+  </div>
+
+</div>
+
+
+
+  <hr> 
+<label class="label" style="text-align:left;">Planning Soutenance:</label>
+<br>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+    <div class="control is-expanded has-icons-left">
+        <input class="input"type="text" name="date">
+      </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">Salle: &nbsp;&nbsp; </label>
+    <div class="control is-expanded has-icons-left">
+        <input class="input" type="text" name="sale">
+      </div>
+  </div>
+
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label" style="text-align:left;">Nom de l'encadrant: &nbsp;&nbsp; </label>
+      <div class="control is-expanded has-icons-left">
+          <input class="input" type="text" name="nome">
+        </div>
+    </div>
+</div>
+
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label" style="text-align:left;">Nom de Rapporteur: &nbsp;&nbsp; </label>
+      <div class="control is-expanded has-icons-left">
+          <input class="input" type="text" name="nomr">
+        </div>
+    </div>
+  
+</div>
+
+
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label" style="text-align:left;">Nom de Président: &nbsp;&nbsp; </label>
+      <div class="control is-expanded has-icons-left">
+          <input class="input" type="text" name="nomp">
+        </div>
+    </div>
+  
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit">
+          valider
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</div>
+
+  </div>
+    </div> 
+      </div>
+        </div>
+          </div> 
+            </div> 
+              </div> 
+                </div>   
+            </div> 
+        </form>
+                <br/>
+                
+
+{% endblock content %}

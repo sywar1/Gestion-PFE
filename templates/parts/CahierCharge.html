@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{%load crispy_forms_tags %}
+{% block content %}
+
+
+<!-- Basic Information -->
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title" style="text-align:center;">Cahier de Charge</h2>
+        {% if messages %}
+        {% for message in messages %}
+           <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+           <script>  
+                var m= '{{message}}';
+                swal("Perfect !", m , "success");
+            </script>
+
+        {% endfor %}
+    {% endif %}
+        <form enctype='multipart/form-data' method="post">
+            {% csrf_token %}
+        <div class="row form-row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="change-avatar">
+                        <div class="upload-img">
+                            <div class="change-photo-btn">
+                                <span><i class="fa fa-upload"></i> Upload Fichier scannee</span>
+                                <input type="file" class="upload" name="document" id="document"> 
+                            </div> 
+                        </div>  
+                        <div class="upload-img"> 
+                            <div class="change-photo-btn">
+                                <span><i class="fa fa-upload"></i> Upload Autre Fichier</span>
+                                <input type="file" class="upload" name="document2" id="document2" >
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nom de projet <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="projet">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Description <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="descrip">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Besoins fonctionnels <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="besoin">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Delais <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="delai">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Emails des Encadrants <span class="text-danger">*</span></label> <br> <br>
+                    <select name="email"> 
+                        {% for n in notes %} 
+                        <option name="email" value="{{n.id}}"> {{ n.mail }}</option> 
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="submit-section submit-btn-bottom">
+    <button type="submit" class="btn btn-primary submit-btn">Save</button>
+</div>
+  </form>
+<!-- /Basic Information -->
+
+
+
+{% endblock content %}

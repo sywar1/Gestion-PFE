@@ -1,0 +1,85 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="card" id="printBox" >
+    <div class="row">
+        <div class="col" style="text-align:left;"><h5  style="text-align:center;"> Institut superieur des Etudes Technologique de Nabeul</h5></div>
+        <div class="col">  <center> <img src="{% static 'img/logoiset.png' %}" alt="logo" style="width:60px;height:60px;"> </img> </center>  </div> 
+        <div class="col" style="text-align:right"> <h5 style="text-align:center;"> <b> المعهد العالي للدراسات التكنولوجية بنابل </b></h5> </div>
+    </div>
+
+  <hr> 
+
+<h2 style="text-align:center;color:grey;">  Demande De Stage </h2>
+<hr>
+<div>
+    <h3 >Les Coordonnées de L'étudiant:</h3>
+    <h3 style="text-align:right;">Stage: Monome</h3>
+</div>                  
+<div> 
+   <h4> Nom :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ user.nom }}</h4> 
+</div> <br>
+<div> 
+    <h4> Prénom :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ user.prenom }} </h4> 
+</div> <br>
+<div> 
+    <h4> Ncin :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ user.ncin }}</h4> 
+</div>  <br>
+<div> 
+    <h4> Parcours :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ user.parcours }} </h4> 
+</div> <br>
+ <div> 
+    <h4> E-mail :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ user.email }} </h4> 
+ </div> 
+
+ <hr> 
+
+ <label class="label" style="text-align:left;"> <h3> Concerne la Société: </h3> </label>
+
+   <br> 
+
+   <div>
+     <h4 style="text-align:left;"> Nom du Société : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color:grey">  ....................... </i></h4>
+ </div> <br>
+
+   <div >
+     <h4 style="text-align:left;">Adresse du Société: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color:grey">  ....................... </i> </h4>
+ </div> <br>  
+ 
+ 
+
+<div >
+     <h4 style="text-align:left;">Domaine du Société: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color:grey">  ....................... </i></h4>
+ </div>
+
+ 
+<div style="text-align:right;">
+       <h4 style="text-align:right;">Signature <br> <i style="color:grey">  ....................... </i> </h4>
+</div>
+
+
+</div>
+
+
+   
+
+  <button class="button is-primary"  onclick="myFunction()">
+    imprimer
+  </button>
+
+  <script>
+    function myFunction()
+{
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    mywindow.document.write(document.getElementById("printBox").innerHTML);
+    mywindow.document.close();
+    mywindow.focus(); 
+    mywindow.print();
+    mywindow.close();
+    return true;
+}
+       
+    </script>
+    {% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{%load crispy_forms_tags %}
+{% block content %}
+
+
+  {% for key in noti %}
+  {% if key.content == "1" %} 
+  <div class="alert alert-success" role="alert">
+    success welcome
+  </div>
+  {% else %} 
+  <div class="alert alert-danger" role="alert">
+    refus malheureusement
+  </div>
+  {% endif %}
+  {% endfor %}
+
+{% endblock content %}

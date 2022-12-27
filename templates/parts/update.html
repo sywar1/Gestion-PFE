@@ -1,0 +1,156 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="row">
+          <div class="col-md-12 offset-md-2">
+
+            <div class="account-content ">
+
+              <div class="row" >
+
+
+                <div class="col-md-10 login-right ">
+
+                        <div class="login-header">
+                          <h3 style="text-align:center;">Demande de Stage</h3> <br/>
+                          <h6>Les coordonnées de l'étudiant:</h6>
+                          <h3 style="text-align:right;">Stage:Binome</h3>
+                        </div>
+                    <form method="post" action="{% url 'gestionpfe:updatebinome' %}">
+                      {% csrf_token %}
+                          <div class="field is-horizontal">
+                            <div class="field-body">
+                              <label class="label" style="text-align:center;">Nom &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left">
+                                <input class="input" type="text" name="nom1" value='{{user.nom}}'>
+                              </div>
+                              <label class="label" style="text-align:center;">Nom2 &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="text" name="nom2" value='{{user.nom2}}'>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                            <div class="field-body">
+                              <label class="label" style="text-align:center;">Prénom &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left">
+                                <input class="input" type="text" name="prenom1" value='{{user.prenom}}'>
+                              </div>
+                              <label class="label" style="text-align:center;">Prénom2 &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="text" name="prenom2" value='{{user.prenom2}}'>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field is-horizontal">
+                            <div class="field-body">
+                              <label class="label" style="text-align:center;">NCin &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left">
+                                <input class="input" type="text" name="cin1" value='{{user.ncin}}'>
+                              </div>
+                              <label class="label" style="text-align:center;">Ncin2 &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="text" name="cin2" value='{{user.ncin2}}'>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                            <div class="field-body">
+                              <label class="label" style="text-align:center;">E-mail &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left">
+                                <input class="input" type="text" name="mail1" value='{{user.email}}'>
+                              </div>
+                              <label class="label" style="text-align:center;">E-mail2 &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="Email" name="mail2" value='{{user.email2}}'>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                            <div class="field-body">
+                              <label class="label" style="text-align:center;">Parcours &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left">
+                                <div class="select is-normal">
+                                  <select name="parcours1">
+                                    <option value="DSI" {% if user.parcours == 'DSI' %}selected{% endif %}> DSI</option>
+                                    <option value="SEM" {% if user.parcours == 'SEM' %}selected{% endif %}> SEM</option>
+                                    <option value="RSI" {% if user.parcours  == 'RSI' %}selected{% endif %}> RSI</option>
+                                    <option value="MDW" {% if user.parcours == 'MDW' %}selected{% endif %}> MDW</option>
+                                  </select>
+                                </div>
+                              </div> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <label class="label" style="text-align:center;">Parcours2 &nbsp;&nbsp;</label>
+                              <div class="control is-expanded has-icons-left has-icons-right">
+                                <div class="select is-normal">
+                                  <select name="parcours2">
+                                    <option value="DSI" {% if user.parcours2 == 'DSI' %}selected{% endif %}> DSI</option>
+                                    <option value="SEM" {% if user.parcours2 == 'SEM' %}selected{% endif %}> SEM</option>
+                                    <option value="RSI" {% if user.parcours2 == 'RSI' %}selected{% endif %}> RSI</option>
+                                    <option value="MDW" {% if user.parcours2 == 'MDW' %}selected{% endif %}> MDW</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="button is-primary" type="submit">
+                            update
+                          </button> 
+                    </form>
+
+
+<hr>
+<label class="label" style="text-align:left;">Concerne la Société:</label>
+<br>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">Nom du Société : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color:grey">  ......................... </i> </label>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">adresse du société: &nbsp;&nbsp;<i style="color:grey">  ....................... </i> </label>
+  </div>
+
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" style="text-align:left;">Domaine du Société: &nbsp;&nbsp;<i style="color:grey">  ....................... </i> </label>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Signature</label>
+    <label class="label"><i style="color:grey">  ....................... </i> </label>
+  </div>
+</div>
+
+
+</div>
+
+  </div>
+    </div>
+      </div>
+        </div>
+          </div>
+            </div>
+              </div>
+                </div>
+
+
+                <br/>
+
+
+{% endblock content %}
